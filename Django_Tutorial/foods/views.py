@@ -4,7 +4,8 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("<h2>Hello, Django</h2>")
+    return render(request, "foods/index.html")
+
 
 def hello_view(request):
-    return HttpResponse('<h1>Hola! :)</h1>')
+    return HttpResponse('<h1>Hola! hello 페이지 입니다 :)</h1>')
