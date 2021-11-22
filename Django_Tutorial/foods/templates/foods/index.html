@@ -1,12 +1,83 @@
+{% load static  %}
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <title>Static_test</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href= {% static 'foods/css/styles.css' %}>
 </head>
 <body>
-    <h2> foods의 템플릿 폴더 내부의 foods 폴더의 index 페이지 입니다.</h2>
+  <div> July 16, 2020 </div>
+  <hr/>
+
+  <h1>코스토랑</h1>
+  <h2>넌 코딩할때가 제일 이뻐</h2>
+  
+  <div class="food-container">
+
+    <div class="food">
+      <img src={% static 'foods/images/chicken.jpg' %} width="300px" height="200px"/>
+      <div class="info">
+        <h3>코딩에 빠진 닭</h3>
+        <P>주머니가 가벼운 당신의 마음까지 생각한 가격!</p>
+        <a href="#">메뉴 보기</a>
+      </div>
+    </div>
+    
+    <div class="food">
+      <img src={% static 'foods/images/sushi.jpg' %} width="300px" height="200px"/>
+      <div class="info">
+        <h3>코코스시</h3>
+        <P>주머니가 가벼운 당신의 마음까지 생각한 가격!</p>
+        <a href="#">메뉴 보기</a>
+      </div>
+    </div>
+    
+    <div class="food">
+      <img src={% static 'foods/images/burger.jpg' %} width="300px" height="200px"/>
+      <div class="info">
+        <h3>코데리아</h3>
+        <P>주머니가 가벼운 당신의 마음까지 생각한 가격!</p>
+        <a href="#">메뉴 보기</a>
+      </div>
+    </div>
+    
+    <div class="food">
+      <img src={% static 'foods/images/bibimbap.jpg' %} width="300px" height="200px"/>
+      <div class="info">
+        <h3>코가네</h3>
+        <P>주머니가 가벼운 당신의 마음까지 생각한 가격!</p>
+        <a href="#">메뉴 보기</a>
+      </div>
+    </div>
+
+    <div class="food">
+      <img src={% static 'foods/images/banana.jpg' %} width="300px" height="200px"/>
+      <div class="info">
+        <h3>바나나네</h3>
+        <P>주머니가 가벼운 당신의 마음까지 생각한 가격!</p>
+        <a href="#">메뉴 보기</a>
+      </div>
+    </div>
+
+    <div class="food">
+      <img src={% static 'foods/images/pumpkin_soup.jpg' %} width="300px" height="200px"/>
+      <div class="info">
+        <h3>호박수프네</h3>
+        <P>주머니가 가벼운 당신의 마음까지 생각한 가격!</p>
+        <a href="#">메뉴 보기</a>
+      </div>
+    </div>
+
+    <div class="food">
+      <img src={% static 'foods/images/croquette.jpg' %} width="300px" height="200px"/>
+      <div class="info">
+        <h3>맛난 고로케</h3>
+        <P>주머니가 가벼운 당신의 마음까지 생각한 가격!</p>
+        <a href="#">메뉴 보기</a>
+      </div>
+    </div>
+    
+  </div>
 </body>
 </html>
