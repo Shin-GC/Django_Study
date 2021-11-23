@@ -14,3 +14,8 @@ def index(request):
 
 def hello_view(request):
     return HttpResponse('<h1>Hola! hello 페이지 입니다 :)</h1>')
+
+
+def food_detail(request, food):
+    context = {'name': food}
+    return render(request, 'foods/detail.html', context=context)
