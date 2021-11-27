@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Travel Website</title>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href={% static 'cities/css/styles.css' %}>
+</head>
+<body>
+    <img id="logo" src={% static 'cities/images/logo.png' %} width="165" height="58">
+    {% block menu-block %}
+
+    {% endblock menu-block %}
+    <img id="photo" src={% static 'cities/images/index.png' %} width="90%">
+</body>
+</html>

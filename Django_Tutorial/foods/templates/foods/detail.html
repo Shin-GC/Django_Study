@@ -1,0 +1,8 @@
+{% load static %}
+
+<title>foods/menu 에서 입력받은 사이트</title>
+
+<h1>{{ name }}을 입력받았습니다.</h1>
+<div>{{ description }}</div>
+<p>{{ price }}원</p>
+<img src={% get_static_prefix  %}{{ img_path }}>
