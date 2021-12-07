@@ -1,17 +1,32 @@
 from django.shortcuts import render
+<<<<<<< Updated upstream
 from django.http import HttpResponse
 from django.http import Http404
+=======
+from django.http import Http404
+from datetime import datetime
+from foods.models import Menu
+
+>>>>>>> Stashed changes
 # Create your views here.
 
 
 def index(request):
+<<<<<<< Updated upstream
     return render(request, "foods/index.html")
 
+=======
+    context = {}
+    today = str(datetime.today().date())
+    menus = Menu.objects.all()
+    context['date'] = today
+    context['menus'] = menus
+>>>>>>> Stashed changes
 
-def hello_view(request):
-    return HttpResponse('<h1>Hola! hello 페이지 입니다 :)</h1>')
+    return render(request, 'foods/index.html', context=context)
 
 
+<<<<<<< Updated upstream
 def food_detail(request, food):
     context = dict()
 
@@ -23,4 +38,10 @@ def food_detail(request, food):
     else:
         raise Http404('이런 음식은 판매하지 않습니다.')
 
+=======
+def food_detail(request, pk):
+    context = dict()
+    menu = Menu.objects.get(id=pk)
+    context['menu'] = menu
+>>>>>>> Stashed changes
     return render(request, 'foods/detail.html', context=context)
