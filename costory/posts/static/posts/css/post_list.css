@@ -1,7 +1,15 @@
+@font-face{
+    font-family: 'Maple';
+    src: url('../images/Maplestory_Bold.ttf')
+}
+
+*{
+    font-family: 'Maple', NanumMyeongjo, serif;
+}
+
 h1,h2,h3,p,a,ul,li{
     margin: 0;
     padding: 0;
-    font-family : 'NanumMyeongjo';
     font-weight: 200;
     list-style:  none;
     text-decoration: none; 
