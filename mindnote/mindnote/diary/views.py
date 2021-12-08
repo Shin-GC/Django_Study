@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Page
 from .forms import PageForm
+
 
 # Create your views here.
 
@@ -21,5 +22,11 @@ def info(request):
 
 
 def page_create(request):
-    form = PageForm()
-    return render(request, 'diary/page_create.html',  {'form': form})
+    if request.method == 'POST':
+        page_form = PageForm(request.POST)
+        new_page = page_form.save()
+        return redirect('page-detail', page_id=new_page.id)
+
+    else:
+        form = PageForm()
+        return render(request, 'diary/page_create.html', {'form': form})

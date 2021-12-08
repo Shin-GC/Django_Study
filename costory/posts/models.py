@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 
 class Post(models.Model):
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=50, unique=True)
     content = models.TextField()
     #  Char 와 Text 필드의 차이는 Char 는 길이제한을 설정하지만 Text 는 길이제한이 없다!
     dt_created = models.DateTimeField(verbose_name='Date Created', auto_now_add=True)
