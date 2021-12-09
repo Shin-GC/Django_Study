@@ -1,11 +1,14 @@
 from django.db import models
+from django.core.validators import MinLengthValidator
+from .validators import validate_symbols
 
 
 # Create your models here.
 
 class Post(models.Model):
     title = models.CharField(max_length=50, unique=True, error_messages={'unique': '이미 동일한 제목으로 쓴 글이 있습니다.'})
-    content = models.TextField()
+    content = models.TextField(validators=[MinLengthValidator(10, '10자 이상 적어주세요!'),
+                                           validate_symbols])
     #  Char 와 Text 필드의 차이는 Char 는 길이제한을 설정하지만 Text 는 길이제한이 없다!
     dt_created = models.DateTimeField(verbose_name='Date Created', auto_now_add=True)
     #  DateTimefield 는 날짜와 시간을 함께 담을 수 있는 필드
