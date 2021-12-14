@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django_extensions',
     'diary',
     'django_seed',
-
 ]
 
 MIDDLEWARE = [
