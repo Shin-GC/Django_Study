@@ -134,7 +134,7 @@ AUTH_USER_MODEL = 'coplate.User'
 
 ACCOUNT_SIGNUP_REDIRECT_URL = 'index'
 LOGIN_REDIRECT_URL = 'index'
-
+ACCOUNT_LOGOUT_ON_GET = True
 # Email settings
 # allauth가 제공하는 이메일 인증이나 비밀번호 찾기 기능을 활용하려면 이메일을 보낼 수 있어야 하는데 이때, 이메일을 어떻게 보내야할지 설정하는게
 # EMAIL_BACKEND 기능입니다. 지금 설정값은 터미널 콘솔로 이메일을 보내게 설정해둔것 입니다. [ 나중에 변경 예정 ]
