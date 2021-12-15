@@ -1,6 +1,8 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
+from django.views.generic import (
+    CreateView, ListView, DetailView, UpdateView, DeleteView, RedirectView
+)
 from django.urls import reverse
 from .models import Page
 from .forms import PageForm
@@ -22,8 +24,12 @@ class PageDetailView(DetailView):
     context_object_name = 'page'
 
 
-def info(request):
-    return render(request, 'diary/info.html')
+class IndexRedirectView(RedirectView):
+    pattern_name = 'post-list'
+
+
+# def info(request):
+#     return render(request, 'diary/info.html')
 
 
 class PageCreateView(CreateView):
