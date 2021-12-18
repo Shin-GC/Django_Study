@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('podomarket.urls')),
     path('', include('allauth.urls')),
+    # allauth 사용을 위해 추가, 이때 default값은 path('account/') 이나 붙이는게 번거로워 깔끔하게 ''로 변경
 ]

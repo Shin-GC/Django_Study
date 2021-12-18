@@ -5,4 +5,6 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 class User(AbstractUser):
-    pass
+    # AbstractUser 모델 생성
+    def __str__(self):
+        return self.email

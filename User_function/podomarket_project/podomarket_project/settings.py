@@ -144,11 +144,17 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-AUTH_USER_MODEL = 'podomarket.User'
+AUTH_USER_MODEL = 'podomarket.User'  # 사용할 모델
 
-ACCOUNT_SIGNUP_REDIRECT_URL = 'index'
-LOGIN_REDIRECT_URL = 'index'
+ACCOUNT_SIGNUP_REDIRECT_URL = 'index'  # 회원가입시 홈페이지로 리다이렉트 하기
+LOGIN_REDIRECT_URL = 'index'  # 로그인시 바로 홈페이지로 리다이렉트 하기
+ACCOUNT_LOGOUT_ON_GET = True  # 로그아웃시 확인창 안뜨고 바로 로그아웃 가능하게
 
+ACCOUNT_AUTHENTICATION_METHOD = 'email'  # 로그인시 username 이 아니라 email을 사용하게 하는 설정
+ACCOUNT_EMAIL_REQUIRED = True  # 회원가입시 필수 이메일을 필수항목으로 만들기
+ACCOUNT_USERNAME_REQUIRED = False  # USERNAME 을 필수항목에서 제거
+ACCOUNT_SESSION_REMEMBER = True  # 브라우저를 닫아도 세션기록 유지! [ 로그인 안풀리게 ! ]
+# SESSION_COOKIE_AGE = 3600  # 쿠키를 한시간만 저장 [ 세션 ]
 # Email settings
 # allauth가 제공하는 이메일 인증이나 비밀번호 찾기 기능을 활용하려면 이메일을 보낼 수 있어야 하는데 이때, 이메일을 어떻게 보내야할지 설정하는게
 # EMAIL_BACKEND 기능입니다. 지금 설정값은 터미널 콘솔로 이메일을 보내게 설정해둔것 입니다. [ 나중에 변경 예정 ]
