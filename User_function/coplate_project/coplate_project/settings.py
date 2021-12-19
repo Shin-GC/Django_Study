@@ -113,23 +113,14 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+        "NAME": "coplate.validators.CustomPasswordValidator",
+    }
 ]
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko'
 
 TIME_ZONE = 'Asia/Seoul'
 
@@ -155,9 +146,13 @@ LOGIN_REDIRECT_URL = 'index'
 ACCOUNT_LOGOUT_ON_GET = True
 # ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_AUTHENTICATION_METHOD = "email"
-
+ACCOUNT_SIGNUP_FORM_CLASS = 'coplate.forms.SignupForm'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+ACCOUNT_PASSWORD_INPUT_RENDER_VALUE = True  # 비밀번호 form이 지워지는 것을 방지
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "account_email_confirmation_done"
+ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "account_email_confirmation_done"
 # Email settings
 # allauth가 제공하는 이메일 인증이나 비밀번호 찾기 기능을 활용하려면 이메일을 보낼 수 있어야 하는데 이때, 이메일을 어떻게 보내야할지 설정하는게
 # EMAIL_BACKEND 기능입니다. 지금 설정값은 터미널 콘솔로 이메일을 보내게 설정해둔것 입니다. [ 나중에 변경 예정 ]
