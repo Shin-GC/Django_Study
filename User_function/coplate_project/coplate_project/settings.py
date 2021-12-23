@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'coplate',
+    'widget_tweaks',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -152,8 +153,14 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 ACCOUNT_PASSWORD_INPUT_RENDER_VALUE = True  # 비밀번호 form이 지워지는 것을 방지
 ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "account_email_confirmation_done"
+# 로그인한 사용자가 이메일 인증을 했을 때 렌더할 템플릿 네임
 ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "account_email_confirmation_done"
+# 로그인 하지 않은 사용자가 이메일 인증을 했을때 렌더할 템플릿 네임임
+# PASSWORD_RESET_TIMOUT = (단위: 초) 패스워드 변경 및 찾기의 유효 url 시간
+ACCOUNT_EMAIL_SUBJECT_PREFIX = ""
+# Account email 의 앞부분을 빈 문자열로 만들어주는 설정
+# allauth 가 발송하는 이메일제목은 웹사이트의 도메인이 앞에 붙게 되는데 그것을 제거해주는 역활
 # Email settings
-# allauth가 제공하는 이메일 인증이나 비밀번호 찾기 기능을 활용하려면 이메일을 보낼 수 있어야 하는데 이때, 이메일을 어떻게 보내야할지 설정하는게
+# allauth 가 제공하는 이메일 인증이나 비밀번호 찾기 기능을 활용하려면 이메일을 보낼 수 있어야 하는데 이때, 이메일을 어떻게 보내야할지 설정하는게
 # EMAIL_BACKEND 기능입니다. 지금 설정값은 터미널 콘솔로 이메일을 보내게 설정해둔것 입니다. [ 나중에 변경 예정 ]
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

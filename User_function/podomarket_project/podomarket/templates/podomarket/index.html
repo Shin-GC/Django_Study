@@ -14,6 +14,7 @@
     <p>닉네임 : {{ user.nickname }}</p>
     <p>kakao_id : {{ user.kakao_id }}</p>
     <p>주소 : {{ user.address }}</p>
+    <a href="{% url "account_change_password" %}">비밀번호 변경하기</a>
 {% else %}
     <p>로그아웃된 상태입니다.</p>
 {% endif %}

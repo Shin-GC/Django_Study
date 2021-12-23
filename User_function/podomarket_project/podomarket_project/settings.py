@@ -142,14 +142,22 @@ ACCOUNT_SIGNUP_REDIRECT_URL = 'index'  # 회원가입시 홈페이지로 리다�
 LOGIN_REDIRECT_URL = 'index'  # 로그인시 바로 홈페이지로 리다이렉트 하기
 ACCOUNT_LOGOUT_ON_GET = True  # 로그아웃시 확인창 안뜨고 바로 로그아웃 가능하게
 
-ACCOUNT_SIGNUP_FORM_CLASS = 'podomarket.forms.SignupForm' # 새로 만든 Form을 회원가입시 나오게 하기 위해 추가
+ACCOUNT_SIGNUP_FORM_CLASS = 'podomarket.forms.SignupForm'  # 새로 만든 Form을 회원가입시 나오게 하기 위해 추가
 
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True  # 이메일 인증 링크를 누르면 바로 인증이 완료되게하기
 ACCOUNT_AUTHENTICATION_METHOD = 'email'  # 로그인시 username 이 아니라 email을 사용하게 하는 설정
 ACCOUNT_EMAIL_REQUIRED = True  # 회원가입시 필수 이메일을 필수항목으로 만들기
+# ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "urls.py에서 설정한 이름"
+# 유저가 인증을 완료했을때 연결할 URL
+# ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "urls.py 에서 설정한 이름"
+# 로그인 하지 않은 사람이 인증을 했을때 연결할 URL
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "account_email_confirmation_done"
+ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "account_email_confirmation_done"
+
 ACCOUNT_USERNAME_REQUIRED = False  # USERNAME 을 필수항목에서 제거
 ACCOUNT_SESSION_REMEMBER = True  # 브라우저를 닫아도 세션기록 유지! [ 로그인 안풀리게 ! ]
 # SESSION_COOKIE_AGE = 3600  # 쿠키를 한시간만 저장 [ 세션 ]
-ACCOUNT_PASSWORD_INPUT_RENDER_VALUE = True # 패스워드 입력이 사라지지 않게
+ACCOUNT_PASSWORD_INPUT_RENDER_VALUE = True  # 패스워드 입력이 사라지지 않게
 # Email settings
 # allauth가 제공하는 이메일 인증이나 비밀번호 찾기 기능을 활용하려면 이메일을 보낼 수 있어야 하는데 이때, 이메일을 어떻게 보내야할지 설정하는게
 # EMAIL_BACKEND 기능입니다. 지금 설정값은 터미널 콘솔로 이메일을 보내게 설정해둔것 입니다. [ 나중에 변경 예정 ]
