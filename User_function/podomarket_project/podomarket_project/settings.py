@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'widget_tweaks'
     # 만약 소셜로그인이 필요할 경우 allauth 문서 참조해서 추가하기
 ]
 AUTHENTICATION_BACKENDS = [

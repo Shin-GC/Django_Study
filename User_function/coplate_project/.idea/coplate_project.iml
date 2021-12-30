@@ -12,6 +12,9 @@
       </configuration>
     </facet>
   </component>
+  <component name="Flask">
+    <option name="enabled" value="false" />
+  </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="jdk" jdkName="Python 3.9 (podo_env)" jdkType="Python SDK" />
@@ -25,6 +28,7 @@
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
     <option name="TEMPLATE_FOLDERS">
       <list>
+        <option value="$MODULE_DIR$/coplate/templates" />
         <option value="$MODULE_DIR$/coplate/templates/account" />
         <option value="$MODULE_DIR$/coplate/templates/coplate" />
         <option value="$MODULE_DIR$/coplate/templates/coplate_base" />
