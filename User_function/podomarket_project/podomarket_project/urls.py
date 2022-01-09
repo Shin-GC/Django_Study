@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 from podomarket.views import CustomPasswordChangeView
-
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('podomarket.urls')),
@@ -34,3 +35,5 @@ urlpatterns = [
     path('', include('allauth.urls')),
     # allauth 사용을 위해 추가, 이때 default값은 path('account/') 이나 붙이는게 번거로워 깔끔하게 ''로 변경
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
