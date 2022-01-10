@@ -1,11 +1,8 @@
 from django.shortcuts import render
 from django.urls import reverse
 from allauth.account.views import PasswordChangeView, PasswordResetView
-
-
-def index(request):
-    print(request.user.is_authenticated)
-    return render(request, 'coplate/index.html')
+from django.views.generic import ListView, DetailView
+from coplate.models import Review, User
 
 
 class CustomPasswordChangeView(PasswordChangeView):
@@ -16,3 +13,17 @@ class CustomPasswordChangeView(PasswordChangeView):
 class CustomPasswordResetView(PasswordResetView):
     def get_success_url(self):
         return reverse("index")
+
+
+class IndexView(ListView):
+    model = Review
+    template_name = "coplate/index.html"
+    context_object_name = "reviews"
+    paginate_by = 4
+    ordering = ["-dt_created"]
+
+
+class ReviewDetailView(DetailView):
+    model = Review
+    template_name = "coplate/review_detail.html"
+    pk_url_kwarg = "review_id"
