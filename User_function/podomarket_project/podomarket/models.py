@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser
 from .validators import validate_no_special_characters
 from django.core.validators import MinValueValidator
 
+
 # Create your models here.
 
 class User(AbstractUser):
@@ -41,7 +42,7 @@ class Post(models.Model):
         ("하", "하"),
     ]
 
-    item_condition = models.CharField(choices=status, max_length=5)
+    item_condition = models.CharField(choices=status, max_length=5, default=None)
     item_details = models.TextField(blank=True)
     image1 = models.ImageField(upload_to="item_pics")
     image2 = models.ImageField(blank=True, upload_to="item_pics")
@@ -50,6 +51,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     dt_created = models.DateTimeField(auto_now_add=True)
     dt_updated = models.DateTimeField(auto_now=True)
+    is_sold = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title

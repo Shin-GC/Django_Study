@@ -1,0 +1,101 @@
+{% extends "podomarket_base/base_with_navbar.html" %}
+
+{% load widget_tweaks %}
+
+{% block title %}
+  {% if post %}
+    {{ post.title }} 수정하기!
+  {% else %}
+    새 게시글 작성 | 포도마켓
+  {% endif %}
+{% endblock title %}
+
+{% block content %}
+  <form class="post-form" method="post" autocomplete="off" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="title">
+      {{ form.title|add_class:"podo-input"|add_error_class:"error"|attr:"placeholder:제목" }}
+      {% for error in form.title.errors %}
+        <div class="error-message">{{ error }}</div>
+      {% endfor %}
+    </div>
+    <div class="price">
+      {{ form.item_price|add_class:"podo-input"|add_error_class:"error"|attr:"placeholder:판매가격" }}
+      {% for error in form.item_price.errors %}
+        <div class="error-message">{{ error }}</div>
+      {% endfor %}
+    </div>
+    <div class="condition">
+      <div class="radios">
+        {% for radio in form.item_condition %}
+          {{ radio }}
+        {% endfor %}
+        {% for error in form.item_condition.erros %}
+          <div class="error-message">{{ error }}</div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="detail">
+      {{ form.item_details|add_class:"podo-input"|add_error_class:"error"|attr:"placeholder:상세 정보" }}
+      {% for error in form.item_details.errors %}
+        <div class="error-message">{{ error }}</div>
+      {% endfor %}
+    </div>
+    <div class="file">
+      <div class="podo-input file-input">
+        <div class="file-content">
+          {% if post.image1 %}
+            <img src="{{ post.image1.url }}" alt="image1">
+          {% else %}
+            {{ form.image1 }}
+          {% endif %}
+          {% for error in from.image1.errors %}
+            {{ error }}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="file">
+      <div class="podo-input file-input">
+        <div class="file-content">
+          {% if post.image2 %}
+            <img src="{{ post.image2.url }}" alt="image2">
+          {% else %}
+            {{ form.image2 }}
+          {% endif %}
+          {% for error in from.image2.errors %}
+            {{ error }}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="file">
+      <div class="podo-input file-input">
+        <div class="file-content">
+          {% if post.image3 %}
+            <img src="{{ post.image3.url }}" alt="image3">
+          {% else %}
+            {{ form.image3 }}
+          {% endif %}
+          {% for error in from.image3.errors %}
+            {{ error }}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% if form.is_sold %}
+      <div class="is-sold">
+        <label for="{{ form.is_sold.id_for_label }}">거래 완료</label>
+        {{ form.is_sold }}
+        {% for error in form.is_sold.errors %}
+          <div class="error-message">{{ error }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <div class="buttons">
+      <a class="podo-button large secondary cancel"
+         href="{% if post %}{% url 'post-detail' post.id %}{% else %}{% url 'index' %}{% endif %}">취소</a>
+      <button class="podo-button large primary submit" type="submit">완료</button>
+    </div>
+  </form>
+{% endblock content %}

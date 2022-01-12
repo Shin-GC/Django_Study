@@ -1,5 +1,5 @@
 from django import forms
-from .models import User
+from .models import User, Post
 
 
 class SignupForm(forms.ModelForm):  # 회원가입시 추가 폼
@@ -12,3 +12,39 @@ class SignupForm(forms.ModelForm):  # 회원가입시 추가 폼
         user.kakao_id = self.cleaned_data["kakao_id"]
         user.address = self.cleaned_data["address"]
         user.save() # 꼭 저장해주기
+
+
+class PostCreateForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = [
+            "title",
+            "item_price",
+            "item_condition",
+            "item_details",
+            "image1",
+            "image2",
+            "image3",
+        ]
+
+        widgets = {
+            "item_condition": forms.RadioSelect,
+        }
+
+
+class PostUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = [
+            "title",
+            "item_price",
+            "item_condition",
+            "item_details",
+            "image1",
+            "image2",
+            "image3",
+            "is_sold",
+        ]
+        widgets = {
+            "item_condition": forms.RadioSelect,
+        }
