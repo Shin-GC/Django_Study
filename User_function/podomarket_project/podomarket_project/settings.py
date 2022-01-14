@@ -143,7 +143,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'podomarket.User'  # 사용할 모델
 
 ACCOUNT_SIGNUP_REDIRECT_URL = 'index'  # 회원가입시 홈페이지로 리다이렉트 하기
-
+LOGIN_URL = "account_login"
 LOGIN_REDIRECT_URL = 'index'  # 로그인시 바로 홈페이지로 리다이렉트 하기
 ACCOUNT_LOGOUT_ON_GET = True  # 로그아웃시 확인창 안뜨고 바로 로그아웃 가능하게
 

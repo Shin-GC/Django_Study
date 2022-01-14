@@ -19,18 +19,27 @@ from django.views.generic import TemplateView
 from coplate.views import CustomPasswordChangeView
 from django.conf import settings
 from django.conf.urls.static import static
+
 urlpatterns = [
+    path("email-confirmation-required/",
+         TemplateView.as_view(template_name="account/email_confirmation_required.html"),
+         name="account_email_confirmation_required"),
+
     # admin
     path('admin/', admin.site.urls),
+
     # coplate
     path('', include('coplate.urls')),
+
     # allauth
     path("email-confirmation-done/",
-         TemplateView.as_view(template_name="coplate/email-confirmation-done.html"),
+         TemplateView.as_view(template_name="account/email_confirmation_done.html"),
          name="account_email_confirmation_done"),
+
     path('password/change/',
          CustomPasswordChangeView.as_view(),
          name="account_change_password"),
+
     path('', include('allauth.urls')),
 ]
 

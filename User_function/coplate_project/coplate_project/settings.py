@@ -142,9 +142,10 @@ MEDIA_URL = "/uploads/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'coplate.User'
-
 ACCOUNT_SIGNUP_REDIRECT_URL = 'index'
 LOGIN_REDIRECT_URL = 'index'
+LOGIN_URL = "account_login"  # 웹 서비스에서 사용하는 로그인에 대한 URL을 설정 [ allauth 를 사용 중이여서 이렇게 설정 ]
+# [ 로그인이 되어 있지 않을 경우 해당 URL로 이동 ]
 ACCOUNT_LOGOUT_ON_GET = True
 # ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_AUTHENTICATION_METHOD = "email"
