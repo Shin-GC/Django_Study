@@ -4,8 +4,6 @@ from .validators import validate_no_special_characters
 from django.core.validators import MinValueValidator
 
 
-# Create your models here.
-
 class User(AbstractUser):
     # AbstractUser 모델 생성
     nickname = models.CharField(
